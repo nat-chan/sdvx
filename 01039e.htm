@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8"><meta http-equiv="Content-Language" content="ja">
+<meta name="robots" content="ALL"><meta name="refresh" content="SDVX,譜面,譜面保管所">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="/files/common/common.js" type="text/javascript"></script>
+<script>COMMON();</script>
+
+<title></title></head><body>
+
+<script>ADDUNDER2();</script>
+<script>BG01039();</script>
+
+<script type="text/javascript">
+var Pattern1 = [{ 'src1':'/img/icon/btn/btnbl.png', 'src2':'01039e_ldb.png' },
+		{ 'src1':'/img/icon/btn/btnyl.png', 'src2':'01039e_ldy.png' },
+		{ 'src1':'/img/icon/btn/btngr.png', 'src2':'01039e_ldg.png' },
+		{ 'src1':'/img/icon/btn/btnrd.png', 'src2':'01039e_ldr.png' },];
+function setPattern1(ID1){ID1 %= Pattern1.length;curPattern1 = ID1;document.getElementById('BTNLD').src = Pattern1[ ID1 ].src1;document.getElementById('PNGLD').src = Pattern1[ ID1 ].src2;}
+var curPattern1 = 0;setPattern1( curPattern1 );</script>
+
+<script type="text/javascript">
+var Pattern2 = [{ 'src3':'/img/icon/btn/btnrd.png', 'src4':'01039e_rdr.png' },
+		{ 'src3':'/img/icon/btn/btnbl.png', 'src4':'01039e_rdb.png' },
+		{ 'src3':'/img/icon/btn/btnyl.png', 'src4':'01039e_rdy.png' },
+		{ 'src3':'/img/icon/btn/btngr.png', 'src4':'01039e_rdg.png' },];
+function setPattern2(ID2){ID2 %= Pattern2.length;curPattern2 = ID2;document.getElementById('BTNRD').src = Pattern2[ ID2 ].src3;document.getElementById('PNGRD').src = Pattern2[ ID2 ].src4;}
+var curPattern2 = 0;setPattern2( curPattern2 );</script>
+
+<script>TBR01039E();</script>
+<script>DAT01039E();</script>
+<script>PNG01039E();</script>
+<script>TBG();</script>
+<script>BTN();</script>
+<script>DWL01039E();</script>
+
+</body></html>

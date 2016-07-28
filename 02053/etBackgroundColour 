@@ -1,0 +1,295 @@
+current community
+
+  • chat
+     
+    Stack Overflow
+  • 
+     
+    Meta Stack Overflow
+
+your communities
+
+Sign up or log in to customize your list.
+
+more stack exchange communities
+
+company blog
+Stack Exchange Inbox Reputation and Badges
+sign up log in tour help
+
+  • Tour Start here for a quick overview of the site
+  • Help Center Detailed answers to any questions you might have
+  • Meta Discuss the workings and policies of this site
+  • About Us Learn more about Stack Overflow the company
+  • Business Learn more about hiring developers or posting ads with us
+
+[                    ]
+
+Stack Overflow
+
+  • Questions
+  • Jobs
+  • Documentation
+  • Tags
+  • Users
+  • Badges
+
+  • Ask Question
+
+Dismiss
+Announcing Stack Overflow Documentation
+
+We started with Q&A. Technical documentation is next, and we need your help.
+
+Whether you're a beginner or an experienced developer, you can contribute.
+
+Sign up and start helping → Learn more about Documentation →
+
+download only audio from youtube video using youtube-dl in python script
+
+                   There's a few posts on downloading audio from YouTube using youtube-dl, but none of them are concrete or
+                   too helpful. I'm wondering what the best way to do it from a Python script is.
+
+                   For example, here's the README example for downloading videos:
+
+                   import youtube_dl
+
+                   ydl_opts = {}
+                   with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                       ydl.download(['http://www.youtube.com/watch?v=BaW_jenozKc'])
+
+up vote 4 down     Obviously if you just care about the audio, you'd rather not download the whole video...
+vote favorite
+1                  The youtube-dl source is only so helpful (ie, not very).
+
+                   Any suggestions how to script this?
+
+                   python audio youtube youtube-dl
+
+                                                asked Dec 14 '14 at 20:09
+                                                 
+                   share|improve this question  [c5a]
+                                                lollercoaster
+                                                1,93193779
+
+                   
+
+
+                   add a comment |   
+
+1 Answer 1
+
+active oldest votes
+
+               Read on in the developer instructions for an amended example:
+
+               from __future__ import unicode_literals
+               import youtube_dl
+
+
+               ydl_opts = {
+                   'format': 'bestaudio/best',
+                   'postprocessors': [{
+                       'key': 'FFmpegExtractAudio',
+                       'preferredcodec': 'mp3',
+                       'preferredquality': '192',
+up vote 6 down     }],
+vote accepted  }
+               with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                   ydl.download(['http://www.youtube.com/watch?v=BaW_jenozKc'])
+
+               This will download an audio file if possible/supported. If the file is not mp3 already, the downloaded file be
+               converted to mp3 using ffmpeg or avconv. For more information, refer to the format and postprocessors
+               documentation entries in a current version of youtube-dl.
+
+                                          answered Dec 15 '14 at 10:22
+                                                                      
+               share|improve this answer                         [6f9]
+                                                                phihag
+                                                          133k31254308
+
+               
+
+
+               add a comment |   
+
+Your Answer
+
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+[                                                                                            ]
+ 
+draft saved
+draft discarded
+[                    ]
+
+Sign up or log in
+
+Sign up using Google
+
+Sign up using Facebook
+
+Sign up using Email and Password
+
+[Submit]
+
+Post as a guest
+
+Name [                              ]
+Email [                              ]
+
+Post as a guest
+
+Name [                              ]
+Email [                              ]
+
+[Post Your Answer] discard
+
+By posting your answer, you agree to the privacy policy and terms of service.
+
+Not the answer you're looking for? Browse other questions tagged python audio youtube youtube-dl or ask your own question.
+
+asked  1 year ago
+
+viewed 3870 times
+
+active 1 year ago
+
+Linked
+
+ 
+9
+Download ONLY audio from a youtube video
+ 
+0
+extract audio with youtube-dl on windows
+ 
+3
+Streaming audio (YouTube)
+
+Related
+
+ 
+1350
+How do I get a YouTube video thumbnail from the YouTube API?
+ 
+0
+How to download youtube videos using a python script
+ 
+6
+Generating Links to Youtube Audio
+ 
+0
+Download private movie with youtube-dl from python?
+ 
+-1
+Youtube-dl library and ERROR 403: Forbidden when using generated direct link by youtube-dl from different locations
+ 
+-1
+Changing name of the video while downloading via youtube-dl
+ 
+0
+How to get specified format youtube video download link using youtube-dl in python
+ 
+0
+youtube video file direct downloading / downloading blocked videos
+ 
+1
+Issues with basic embedding of youtube_dl into a Python 3.4 script
+ 
+0
+How to edit youtube-dl command to include extra keyword in video filename
+
+Hot Network Questions
+
+  • 
+    Can the DM choose to always attack me instead of my mount?
+  • 
+    What is the opposite of a freelancer?
+  • 
+    CentOS 7 - yum install not working
+  • 
+    Science Fiction, Looking for an old book
+  • 
+    Are black holes perfect spheroids?
+  • 
+    How do you call someone who is able to learn the new technologies?
+  • 
+    Never odd or even
+  • 
+    Interquartile Mean
+  • 
+    Currency that can stand extreme temperatures
+  • 
+    Are security flaws acceptable if no much harm can derive from them?
+  • 
+    What is this stuff? Some kind of moss, lichen?
+  • 
+    Short and sweet What am I riddle?
+  • 
+    Stating That Questions Are Mostly Technical
+  • 
+    Smallest Self-Sufficient Colony
+  • 
+    Collect and place items
+  • 
+    Adding arrows in Tangent
+  • 
+    How can html5 geolocalisation bypass my vpn?
+  • 
+    Using CDN like Cloudflare with mod_rewrite to save bandwidth
+  • 
+    Detriplicate a string
+  • 
+    How can IR cameras see things colder than the camera?
+  • 
+    A word for someone who gets scared easily
+  • 
+    Would a 'World Tree' be feasible in real life?
+  • 
+    Why is tilde not available out of the box in TeX?
+  • 
+    Which institution's logo to add to research poster when research was done at institution different to main affiliation as
+    student?
+
+more hot questions
+question feed
+*
+lang-py
+about us tour help blog chat data legal privacy policy work here advertising info mobile contact us feedback
+
+                        Technology                           Life / Arts       Culture /          Science          Other
+                                                                               Recreation
+                                                            1. Photography
+                  1. Programmers                            2. Science       1. English
+                  2. Unix & Linux                              Fiction &        Language &    1. Mathematics
+ 1. Stack         3. Ask Different    1. Database              Fantasy          Usage         2. Cross
+    Overflow         (Apple)             Administrators     3. Graphic       2. Skeptics         Validated
+ 2. Server Fault  4. WordPress        2. Drupal Answers        Design        3. Mi Yodeya        (stats)        1. Stack Apps
+ 3. Super User       Development      3. SharePoint         4. Movies & TV      (Judaism)     3. Theoretical    2. Meta Stack
+ 4. Web           5. Geographic       4. User Experience    5. Seasoned      4. Travel           Computer          Exchange
+    Applications     Information      5. Mathematica           Advice        5. Christianity     Science        3. Area 51
+ 5. Ask Ubuntu       Systems          6. Salesforce            (cooking)     6. Arqade        4. Physics        4. Stack
+ 6. Webmasters    6. Electrical       7. ExpressionEngine®  6. Home             (gaming)      5. MathOverflow      Overflow
+ 7. Game             Engineering         Answers               Improvement   7. Bicycles      6. Chemistry         Careers
+    Development   7. Android          8. more (13)          7. Personal      8. Role-playing  7. Biology
+ 8. TeX - LaTeX      Enthusiasts                               Finance &        Games         8. more (5)
+                  8. Information                               Money         9. more (21)
+                     Security                               8. Academia
+                                                            9. more (9)
+
+site design / logo © 2016 Stack Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required
+rev 2016.7.25.3831
+Stack Overflow works best with JavaScript enabled[p-c1rF4kxg]
